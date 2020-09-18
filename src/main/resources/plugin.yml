@@ -1,0 +1,8 @@
+name: Boticky
+version: @version@
+main: me.gigaadamyt.boticky.Main
+authors: [ GigaAdamYT ]
+description: Boticky
+website: www.trenend.eu
+commands:
+  boticky:
