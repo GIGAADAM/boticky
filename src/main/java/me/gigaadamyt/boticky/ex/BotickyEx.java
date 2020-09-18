@@ -16,23 +16,25 @@ public class BotickyEx implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender s, Command c, String l, String[] args) {
-        if (s instanceof Player) {
-            Player p = (Player) s;
-            ItemStack botky = new ItemStack(Material.GOLD_BOOTS, 1);
-            ItemMeta botkym = botky.getItemMeta();
-            botkym.setDisplayName("§6§lBoticky");
-            List<String> botkyl = new ArrayList<String>();
+        if (s instanceof Player) { // Zjištuje zda-li odesílatel (s) je enum Player (tedy typu Hráč)
+            Player p = (Player) s; // Získam z s hráče
+            ItemStack botky = new ItemStack(Material.GOLD_BOOTS, 1); // Vytvoří ItemStack
+            ItemMeta botkym = botky.getItemMeta(); // Získá ItemMetu itemu z ItemStacku botky
+            botkym.setDisplayName("§6§lBoticky"); // Nastaví do IM název itemu
+            List<String> botkyl = new ArrayList<String>(); // Vytvoří List, který použíju pro zapsání Loru itemu
+            // Přidávám do listu text (text do loru)
             botkyl.add("");
             botkyl.add("§7Pri nasazeni boticek muzete letat!");
             botkyl.add("");
-            botkym.setLore(botkyl);
-            botky.setItemMeta(botkym);
 
-            p.getInventory().addItem(botky);
-            p.sendMessage("§aZiskal jsi boticky!");
+            botkym.setLore(botkyl); // Nastavuje lore do IM
+            botky.setItemMeta(botkym); // Nastavuje IM do ItemStacku botky
+
+            p.getInventory().addItem(botky); // Přidá hráči do Inventáře item z ItemStacku botky
+            p.sendMessage("§aZiskal jsi boticky!"); // Napíše hráči zprávu
 
         } else {
-            s.sendMessage("§cTento prikaz muze jenom hrac!!");
+            s.sendMessage("§cTento prikaz muze jenom hrac!!"); // Napíše odesílateli zprávu
         }
 
 
