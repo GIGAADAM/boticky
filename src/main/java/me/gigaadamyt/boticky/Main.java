@@ -12,19 +12,18 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        pl = this;
-        Bukkit.getConsoleSender().sendMessage("§6BOTICKY§a - Plugin byl zapnut!");
-        getCommand("boticky").setExecutor(new BotickyEx());
+        pl = this; // Nastaví pl na this (Main.class) používám při registraci eventů nebo BukkitRunnable
+        Bukkit.getConsoleSender().sendMessage("§6BOTICKY§a - Plugin byl zapnut!"); // Pošle do konzole zprávu
+        getCommand("boticky").setExecutor(new BotickyEx()); // Nastaví executor na příkaz, executor má v sobě vše co příkaz má poté vyvolat
 
 
-
-        PluginManager pm = Bukkit.getPluginManager();
-        pm.registerEvents(new Eventy(), pl);
+        PluginManager pm = Bukkit.getPluginManager(); // Získá PluginManager přes, který zaregistruji event třídu
+        pm.registerEvents(new Eventy(), pl); // Registruje eventy
     }
 
     @Override
     public void onDisable() {
-        Bukkit.getConsoleSender().sendMessage("§6BOTICKY§c - Plugin byl vypnut.");
+        Bukkit.getConsoleSender().sendMessage("§6BOTICKY§c - Plugin byl vypnut."); // Pošle do konzole zprávu.
     }
 
 
